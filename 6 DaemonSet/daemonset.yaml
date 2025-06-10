@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: anti-virus
+spec:
+  selector:
+    matchLabels:
+      app: nginx # The matchLabels must match the template.metadata.label "2-frontend" HERE
+  template: # ========================> Is part of simple pod 'example: apiVersion: v1 and kind: Pod already in the template Continue from metadata section
+    metadata:
+      labels:
+        app: nginx # Must match This label
+    spec:
+      containers:
+      - name: anti-virus-pod
+        image: nginx

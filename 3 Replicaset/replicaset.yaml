@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: kplabs-replicaset
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: 2-frontend # The matchLabels must match the template.metadata.label "2-frontend" HERE
+  template: # ========================> Is part of simple pod 'example: apiVersion: v1 and kind: Pod already in the template Continue from metadata section
+    metadata:
+      labels:
+        tier: 2-frontend # Must match This label
+    spec:
+      containers:
+      - name: php-redis
+        image: nginx
