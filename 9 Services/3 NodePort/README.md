@@ -10,7 +10,7 @@ A NodePort service exposes your application on a static port across each node’
 | File Name         | Description                               |
 |-------------------|-------------------------------------------|
 | nodeport.yaml     | Defines a NodePort Service                |
-| enother-nodeport.yaml | (Alternative) NodePort Service example|
+| nodeport-2.yaml | (Alternative) NodePort Service example|
 
 ---
 
