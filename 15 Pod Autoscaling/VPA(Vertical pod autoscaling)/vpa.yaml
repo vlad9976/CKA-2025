@@ -1,0 +1,11 @@
+apiVersion: "autoscaling.k8s.io/v1"
+kind: VerticalPodAutoscaler
+metadata:
+  name: nginx-vpa
+spec:
+  targetRef:
+    apiVersion: "apps/v1"
+    kind:       Deployment # The kind we are targetting
+    name:       nginx-deployment # The name of the Deployment that was targeted
+  updatePolicy:
+    updateMode: "Off" # Mode is Off only recomendations will be provided but no changes will be made!
