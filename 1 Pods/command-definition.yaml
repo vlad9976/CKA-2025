@@ -1,0 +1,25 @@
+# 1 Json ([])
+apiVersion: v1
+kind: Pod
+metadata:
+  name: json-ping-pod
+spec:
+  containers:
+  -  name: Jpingpod
+     image: busybox:latest
+     command: ["ping","-c","4","google.com"]
+---
+# 2 Yaml (-)
+apiVersion: v1
+kind: Pod
+metadata:
+  name: yaml-ping-pod
+spec:
+  containers:
+  -  name: Ypingpod
+     image: busybox:latest
+     command: 
+      - "ping"
+      - "-c"
+      - "4"
+      - "google.com"
