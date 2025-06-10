@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx2
+  name: named-svc
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: custom-http #=> Refferencing the name of the custom name that was assigned in the pod
+  selector:
+    run: nginx2
+  type: NodePort
+status:
+  loadBalancer: {}
+
+#Labels selectors must match the pod's

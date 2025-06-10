@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: path-base-ingress
+spec:
+  rules:
+  - host: '*'
+    http:
+      paths:
+      - backend:
+          service:
+            name: app-1-service
+            port:
+              number: 80
+        path: /app-1
+        pathType: Exact
+  - host: '*'
+    http:
+      paths:
+      - backend:
+          service:
+            name: app-2-service
+            port:
+              number: 80
+        path: /app-2
+        pathType: Exact
+
+#kubectl create ingress path-based-ingress --rule=*/=app-1-service:80 --rule=*/=app-2-service:80 --dry-run=client -o yaml
